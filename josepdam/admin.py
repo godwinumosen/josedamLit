@@ -1,9 +1,9 @@
 from django.contrib import admin
 # Register your models here.
 from . import models
-from .models import Construction
+from .models import ConstructionPost
 
-class ConstructionModelAdmin (admin.ModelAdmin):
+class ConstructionPostModelAdmin (admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_display = ['title','description','author','img']
-admin.site.register(Construction, ConstructionModelAdmin)
+admin.site.register(ConstructionPost, ConstructionPostModelAdmin)

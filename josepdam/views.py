@@ -23,6 +23,8 @@ class ArticleDetailView(DeleteView):
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
 
+def about (request):
+    return render (request,'josep/about.html' )
 
 
 

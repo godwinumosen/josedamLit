@@ -39,7 +39,6 @@
     </div>
     <!-- Banner Ends Here -->
 
-
     <div class="request-form">
       <div class="container">
         <div class="row">
@@ -96,9 +95,9 @@
         <div class="more-info-content">
           <div class="row">
             <div class="col-md-6">
-              <a href="about.html">
+              <a href="{% url 'about' %}">
               <div class="left-image">
-                <img src="{% static 'assets/images/about-1-570x350.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'assets/images/scott.jpg' %}" class="img-fluid" alt="">
               </div>
             </a>
             </div>
@@ -107,7 +106,7 @@
                 <span>Who we are</span>
                 <h2>Get to know about <em>our company</em></h2>
                 <p>It's far better to buy a wonderful property at a fair price than a fair property at a wonderful price. The only competitive advantage we have is the culture and values of the company</p>
-                <a href="about.html" class="filled-button">Read More</a>
+                <a href="{% url 'about' %}" class="filled-button">Read More</a>
               </div>
             </div>
           </div>

@@ -11,6 +11,8 @@ class ConstructionPost(models.Model):
     img = models.ImageField ( upload_to= 'image/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    price = models.IntegerField()
+    location = models.CharField(max_length = 2200)
 
     class Meta:
         ordering =['-publish_date']

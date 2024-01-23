@@ -34,13 +34,16 @@ def contact (request):
         message_subject = request.POST['message-subject']
         message = request.POST['message']
         
-        messages.success(request, f'Your email was sent Successfully we will get back to you {message_name}..!')
-        return redirect('/home')
+        messages.success(request, f'Your email was sent Successfully {message_name}..!')
+        return redirect('/message')
     else:
         context={
             'email':email
         }
         return render(request, 'josep/contact.html',context)
+
+def message (request):
+    return render (request, 'josep/message.html', {})
 
 # The about page
 def about (request):

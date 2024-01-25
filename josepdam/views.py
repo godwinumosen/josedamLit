@@ -43,7 +43,7 @@ def contact (request):
         return render(request, 'josep/contact.html',context)
 
 def message (request):
-    return render (request, 'josep/message.html', {})
+    return render (request, 'josep/message.html', {}
 
 # The about page
 def about (request):

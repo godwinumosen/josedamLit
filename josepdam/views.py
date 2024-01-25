@@ -39,7 +39,7 @@ def contact (request):
     else:
         context={
             'email':email
-        
+        }
         return render(request, 'josep/contact.html',context)
 
 def message (request):

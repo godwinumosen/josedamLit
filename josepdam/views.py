@@ -57,7 +57,10 @@ def whatsapp_message(request):
     context = {'whatsapp_link': whatsapp_link}
     return render(request, 'whatsapp_message.html', context)
 
-
+#The Team class base
 class TeamView (ListView):
     model = Teams
     template_name = 'josep/team.html'
+
+
+    

@@ -22,3 +22,11 @@ class ConstructionPost(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
+    
+
+class Teams (models.Model):
+    worker_name = models.CharField (max_length = 200)
+    worker_position = models.CharField (max_length = 200)
+    worker_description = models.TextField()
+    worker_img = models.ImageField(upload_to='images')
+    slug = models.SlugField (max_length=25)

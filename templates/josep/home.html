@@ -77,7 +77,7 @@
                 <h4>
                   <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:25 }}</a>
                 </h4>
-                <p>{{ post.description|truncatechars:50 }}</p>
+                <p>{{ post.description|truncatechars:55 }}</p>
                 <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a>
               </div>
             </div>

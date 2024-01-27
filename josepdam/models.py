@@ -30,3 +30,13 @@ class Teams (models.Model):
     worker_description = models.TextField()
     worker_img = models.ImageField(upload_to='images')
     slug = models.SlugField (max_length=25)
+    publish_date = models.DateTimeField (auto_now_add= True)
+
+    class Meta:
+        ordering =['-publish_date']
+
+    def get_absolute_url(self):
+        return reverse ('home')
+    
+    def __str__(self):
+        return self.title + ' | ' + str(self.author)

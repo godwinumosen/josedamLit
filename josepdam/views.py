@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, Teams
+from .models import ConstructionPost, TeamsPost
 from django.contrib import messages
 from django.urls import reverse_lazy
 
@@ -59,8 +59,20 @@ def whatsapp_message(request):
 
 #The Team class base
 class TeamView (ListView):
-    model = Teams
+    model = TeamsPost
     template_name = 'josep/team.html'
+
+#The Team article details
+class ArticleTeamDetailView(DeleteView):
+    model = TeamsPost
+    template_name = 'josep/article_team_detail.html'
+
+    def ArticleTeamDetailView(request, pk):  
+        object = get_object_or_404(TeamsPost, pk=pk)
+        return render(request, 'article_team_detail.html', {'detail': object})
 
 
     
+
+
+

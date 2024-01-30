@@ -24,7 +24,7 @@ class ConstructionPost(models.Model):
         return reverse ('home')
     
 
-class Teams (models.Model):
+class TeamsPost (models.Model):
     worker_name = models.CharField (max_length = 200)
     worker_position = models.CharField (max_length = 200)
     worker_description = models.TextField()

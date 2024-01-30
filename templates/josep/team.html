@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %} Josepdam Teams {% endblock %}
 {% block content %}
   
        
@@ -39,7 +39,7 @@
                 <span>{{ post.worker_position }}</span>
                 <p>{{ post.worker_description |truncatechars:55}}</p>
                 <p>
-                  <a href="{% url 'detail-team' post.pk %}" class="filled-button">View More</a
+                  <a href="{% url 'detail-team' post.pk %}" class="filled-button">Read More</a
                   <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
                 </p>
               </div>

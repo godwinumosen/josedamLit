@@ -29,15 +29,17 @@
           {% for post in object_list %}
           <div class="col-md-4">
             <div class="team-item">
-              {% if post.worker_img %}
-              <img src="{{ post.worker_img.url }}" alt="">
-              {% endif %}
+              <a href="{% url 'detail-team' post.pk %}">
+                {% if post.worker_img %}
+                <img src="{{ post.worker_img.url }}" alt="">
+                {% endif %}
+              </a>
               <div class="down-content">
-                <h4>{{ post.worker_name |truncatechars:25}}</h4>
+                <a href="{% url 'detail-team' post.pk %}"><h4>{{ post.worker_name |truncatechars:25}}</h4></a>
                 <span>{{ post.worker_position }}</span>
                 <p>{{ post.worker_description |truncatechars:55}}</p>
                 <p>
-                  <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a
+                  <a href="{% url 'detail-team' post.pk %}" class="filled-button">View More</a
                   <a href="#"><span><i class="fa fa-linkedin"></i></span></a>
                 </p>
               </div>

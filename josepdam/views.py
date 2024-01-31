@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost
 from django.contrib import messages
 from django.urls import reverse_lazy
 
@@ -17,7 +17,7 @@ class HomeView(ListView):
     template_name = 'josep/home.html'
 
 #The ArticleDetailView page
-class ArticleDetailView(DeleteView):
+class ArticleDetailView(DetailView):
     model = ConstructionPost
     template_name = 'josep/article_detail.html'
 
@@ -63,7 +63,7 @@ class TeamView (ListView):
     template_name = 'josep/team.html'
 
 #The Team article details
-class ArticleTeamDetailView(DeleteView):
+class ArticleTeamDetailView(DetailView):
     model = TeamsPost
     template_name = 'josep/article_team_detail.html'
 
@@ -72,6 +72,10 @@ class ArticleTeamDetailView(DeleteView):
         return render(request, 'article_team_detail.html', {'detail': object})
 
 
+#The Directors Team class base
+class TeamDirectorView (ListView):
+    model = Board_Of_DirectorPost
+    template_name = 'josep/board_of__director.html'
     
 
 

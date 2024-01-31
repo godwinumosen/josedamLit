@@ -41,3 +41,22 @@ class TeamsPost (models.Model):
     
     def __str__(self):
         return self.worker_name + ' | ' + str(self.author)
+    
+
+class Board_Of_DirectorPost (models.Model):
+    board_of_director_name = models.CharField (max_length = 200)
+    board_of_director_position = models.CharField (max_length = 200)
+    board_of_director_description = models.TextField()
+    board_of_director_img = models.ImageField(upload_to='images_dir')
+    slug = models.SlugField (max_length=25)
+    publish_date = models.DateTimeField (auto_now_add= True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering =['-publish_date']
+
+    def get_absolute_url(self):
+        return reverse ('home')
+    
+    def __str__(self):
+        return self.board_of_director_name + ' | ' + str(self.author)

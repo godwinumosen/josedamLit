@@ -1,11 +1,50 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}{{ object.worker_name }} {% endblock %}
-{% block content %}
+{% block content%}
 
+    <!-- Page Content -->
+    <div class="page-headingdddddd header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1> <small><del></small> <sup>$</sup>{{ object.price }}</h1>
+              <span>{{ object.location }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div>
+              {% if object.worker_img %}
+              <img src="{{ object.worker_img.url }}" alt="" class="img-fluid wc-image">
+              {% endif %}
+            </div> <br>
+          </div>
+        </div> <br>
+        <div class="tabs-content" style="display: block;">
+          <h3>{{ object.worker_name }}</h3>
+          <h6>{{ object.worker_position }}</h6><br>
+          <p>{{ object.worker_description|truncatechars:9000 }}</p>
+        </div> <hr>
+        <span> 
+           <a href="{% url 'home' %}" class="btn btn-secondary"><i class="fa fa-angle-left">Back</i></a>
+            <small>Posted: </small> {{ object.publish_date }} 
+        </span>
+          <div class="col-lg-3">
+            <div class="tabs-content">
+              <h4><small>Posted by: {{object.author}}</small></h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
 
 
 

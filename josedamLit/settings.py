@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'josepdam', 
     'memberAccount',
+    
 ]
+
+ 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

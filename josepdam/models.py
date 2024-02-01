@@ -4,6 +4,7 @@ from django.urls import reverse
 from datetime import datetime, date
 
 
+
 class ConstructionPost(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()

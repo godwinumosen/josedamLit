@@ -77,6 +77,11 @@ class TeamDirectorView (ListView):
     model = Board_Of_DirectorPost
     template_name = 'josep/board_of__director.html'
     
+#the desplay details for director
+class ArticleBoardOfDirectorDetailView(DetailView):
+    model = Board_Of_DirectorPost
+    template_name = 'josep/article_board_of_director.html'
 
-
-
+    def ArticleBoardOfDirectorDetailView(request, pk):  
+        object = get_object_or_404(Board_Of_DirectorPost, pk=pk)
+        return render(request, 'article_board_of_director.html', {'detail': object})

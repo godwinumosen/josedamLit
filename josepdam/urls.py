@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import HomeView, ArticleDetailView, TeamView, ArticleTeamDetailView, TeamDirectorView
+from .views import ArticleBoardOfDirectorDetailView
 
 
 urlpatterns = [
@@ -16,5 +17,6 @@ urlpatterns = [
    path('team/', TeamView.as_view(), name='team'),
    path('article_team/<int:pk>/', ArticleTeamDetailView.as_view(), name="detail-team"),
    path('director/', TeamDirectorView.as_view(), name='director'),
+   path('article_board_of_director/<int:pk>/', ArticleBoardOfDirectorDetailView.as_view(), name="detail-director"),
 
 ]

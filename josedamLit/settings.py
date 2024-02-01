@@ -77,6 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'josedamLit.wsgi.application'
 
+GOOGLE_API_KEY =''
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

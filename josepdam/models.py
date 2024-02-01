@@ -6,14 +6,14 @@ from datetime import datetime, date
 
 
 class ConstructionPost(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
     slug = models.SlugField (max_length=255)
     img = models.ImageField ( upload_to= 'image/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
-    location = models.CharField(max_length = 2200)
+    location = models.CharField(max_length = 200,blank=True, null=True)
 
     class Meta:
         ordering =['-publish_date']
@@ -26,8 +26,8 @@ class ConstructionPost(models.Model):
     
 
 class TeamsPost (models.Model):
-    worker_name = models.CharField (max_length = 200)
-    worker_position = models.CharField (max_length = 200)
+    worker_name = models.CharField (max_length = 200, blank=True, null=True)
+    worker_position = models.CharField (max_length = 200, blank=True, null=True)
     worker_description = models.TextField()
     worker_img = models.ImageField(upload_to='images')
     slug = models.SlugField (max_length=25)
@@ -45,8 +45,8 @@ class TeamsPost (models.Model):
     
 
 class Board_Of_DirectorPost (models.Model):
-    board_of_director_name = models.CharField (max_length = 200)
-    board_of_director_position = models.CharField (max_length = 200)
+    board_of_director_name = models.CharField (max_length = 200, blank=True, null=True)
+    board_of_director_position = models.CharField (max_length = 200, blank=True, null=True)
     board_of_director_description = models.TextField()
     board_of_director_img = models.ImageField(upload_to='images_dir')
     slug = models.SlugField (max_length=25)

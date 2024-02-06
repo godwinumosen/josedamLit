@@ -14,12 +14,14 @@ def signup(request):
         password = request.POST.get('password')
         # Check if the username is already taken
         if User.objects.filter(username=username).exists():
-            return HttpResponse('Username is already taken. Please choose a different one.')
+           # return HttpResponse('Username is already taken. Please choose a different one.')
+            return render(request, 'registration/login.html', {'error_message': 'Username is already taken. Please choose a different one.'})
         # Create the user
         user = User.objects.create_user(username=username, email=email, password=password)
-        user.save()
+        user.save()  
+        #return HttpResponse('Sign up successful! You can now log in.')
+        return render(request, 'registration/login.html')
         
-        return HttpResponse('Sign up successful! You can now log in.')
     return render (request, 'registration/signup.html', {})
 
 

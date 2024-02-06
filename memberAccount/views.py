@@ -33,7 +33,8 @@ def login(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)
+            #login(request, user)
+            return render(request, 'home')
             return HttpResponse("Login successful!")  # You can replace this with your desired response
         else:
             return HttpResponse("Invalid username or password")

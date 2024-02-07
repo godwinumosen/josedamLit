@@ -40,7 +40,7 @@ def login_user(request):
         else:
             # Return an 'invalid login' error message.
             messages.error(request, 'Invalid username or password.')
-            return redirect('login_user')  # Change 'login' to the URL name of your login page
+            return render(request, 'registration/login_message.html')  # Change 'login' to the URL name of your login page
     else:
         return render(request, 'registration/login_user.html')
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import generic
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import memberRegister
 from .forms import MyForm
@@ -12,31 +13,46 @@ def signup(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        # Check if the username is already taken
+            # Check if the username is already taken
         if User.objects.filter(username=username).exists():
-            #return HttpResponse('Username is already taken. Please choose a different one.')
-            return render(request, 'registration/login.html', {'error_message': 'Username is already taken. Please choose a different one.'})
-        # Create the user
-        user = User.objects.create_user(username=username, email=email, password=password)
-        user.save()  
-        #return HttpResponse('Sign up successful! You can now log in.')
-        return render(request, 'registration/login.html')
+            messages.error(request, 'All fields are required.')
+            return render(request, 'josep/home.html', {'error_message': 'Username is already taken. Please choose a different one.'})
+            # Create the user
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()  
+            return render(request, 'registration/login_user.html')
     
     return render (request, 'registration/signup.html', {})
 
 
-def login(request):
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return redirect('home')  # Change 'dashboard' to the URL name of your dashboard page
+        else:
+            # Return an 'invalid login' error message.
+            messages.error(request, 'Invalid username or password.')
+            return redirect('login_user')  # Change 'login' to the URL name of your login page
+    else:
+        return render(request, 'registration/login_user.html')
+
+
+'''def login_user (request): 
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            #login(request, user)
-            return render(request, 'home')
-            return HttpResponse("Login successful!")  # You can replace this with your desired response
-        else:
-            return HttpResponse("Invalid username or password")
+            login(request, user)
+            return render(request, 'josep/home.html')
 
-    return render(request, 'registration/login.html')
+    return render(request, 'registration/login_user.html')'''
 
 

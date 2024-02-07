@@ -15,8 +15,8 @@ def signup(request):
         password = request.POST.get('password')
             # Check if the username is already taken
         if User.objects.filter(username=username).exists():
-            messages.error(request, 'All fields are required.')
-            return render(request, 'josep/home.html', {'error_message': 'Username is already taken. Please choose a different one.'})
+            messages.success(request, f'Your account has been successfully created {username}..')
+            return render(request, 'registration/login_message.html', {'error_message': 'Username is already taken. Please choose a different one.'})
             # Create the user
         else:
             user = User.objects.create_user(username=username, email=email, password=password)
@@ -35,6 +35,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
+            messages.success(request, f'Your account has been successfully created {username}..')
             return redirect('home')  # Change 'dashboard' to the URL name of your dashboard page
         else:
             # Return an 'invalid login' error message.
@@ -44,15 +45,7 @@ def login_user(request):
         return render(request, 'registration/login_user.html')
 
 
-'''def login_user (request): 
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return render(request, 'josep/home.html')
-
-    return render(request, 'registration/login_user.html')'''
+def login_message (request):
+    return render(request, 'registration/login_message.html')
 
 

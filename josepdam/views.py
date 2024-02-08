@@ -25,7 +25,11 @@ class ArticleDetailView(DetailView):
     def ArticleDetailView(request, pk):  
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
-    
+
+def blog (request):
+
+    return render (request, 'josep/blog.html', {})   
+
 # The Contact
 def contact (request):
     email='josepdam@gmail.com'
@@ -88,12 +92,6 @@ class ArticleBoardOfDirectorDetailView(DetailView):
         return render(request, 'article_board_of_director.html', {'detail': object})
     
 
-'''def like_post(request, post_id):
-    post = ConstructionPost.objects.get(id=post_id)
-    like, created = Like.objects.get_or_create(user=request.user, post=post)
-    if not created:
-        like.delete()
-    return redirect('like-post', post_id=post_id)'''
 
 def like_post(request, post_id):
     post = ConstructionPost.objects.get(pk=post_id)

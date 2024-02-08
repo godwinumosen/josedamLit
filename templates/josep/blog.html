@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Josepdam Boad of Director {% endblock %}
+{% block content %}
+  
+    
+    <!-- Team Director Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Blog Properties</h1>
+            <span>Our Blog Page is Still Under Developement...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <h2>Blog Properties,<em>Loading...</em></h2>
+                <span>Josepdam Real estate is a lucrative venture that involves purchasing undervalued properties</span>
+              </div>
+            </div>
+  
+            {% for post in object_list %}
+            <div class="col-md-4">
+              <div class="service-item">
+                <a href="{% url 'detail' post.pk %}">
+                  {% if post.img %}
+                  <img src="{{ post.img.url }}" alt="">
+                  {% endif %}
+                </a>
+                <div class="down-content">
+                  <h4>
+                    <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:25 }}</a>
+                  </h4>
+                  <p>{{ post.description|truncatechars:55 }}</p>
+                  <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a>
+                </div>
+              </div>
+              <br>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+  
+    
+
+    {% endblock %}
+   

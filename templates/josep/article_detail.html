@@ -43,6 +43,7 @@
                {% csrf_token %}
                <button type="submit">Unlike</button>
             </form>
+            
           {% else %}
             <form action="{% url 'like-post' post_id=object.id %}" method="post">
               {% csrf_token %}

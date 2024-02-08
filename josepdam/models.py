@@ -14,6 +14,7 @@ class ConstructionPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
     location = models.CharField(max_length = 200,blank=True, null=True)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
 
     class Meta:
         ordering =['-publish_date']
@@ -23,6 +24,12 @@ class ConstructionPost(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
+    
+# The like and unlike model for each property
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(ConstructionPost, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     
 # The Josepdam team Model
 class TeamsPost (models.Model):
@@ -63,8 +70,3 @@ class Board_Of_DirectorPost (models.Model):
         return self.board_of_director_name + ' | ' + str(self.author)
     
 
-# The like and unlike model for each property
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(ConstructionPost, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)

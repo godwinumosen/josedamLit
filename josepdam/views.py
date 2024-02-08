@@ -101,4 +101,13 @@ def like_post(request, post_id):
     if not created:
         like.delete()
     # Redirect the user to the same page or a different page
-    return redirect(reverse('/detail', kwargs={'post_id': post_id}))
+    return redirect(reverse('like-post', kwargs={'post_id': post_id}))
+    
+
+def like_post(request, post_id):
+    post = get_object_or_404(ConstructionPost, pk=post_id)
+    like, created = Like.objects.get_or_create(user=request.user, post=post)
+    if not created:
+        like.delete()
+    # Redirect the user back to the article detail page
+    return redirect(reverse('detail', kwargs={'pk': post_id}))

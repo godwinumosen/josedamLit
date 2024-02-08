@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like
 from django.contrib import messages
+from django.urls import reverse
 from django.urls import reverse_lazy
 
 def base (request):
@@ -85,3 +86,19 @@ class ArticleBoardOfDirectorDetailView(DetailView):
     def ArticleBoardOfDirectorDetailView(request, pk):  
         object = get_object_or_404(Board_Of_DirectorPost, pk=pk)
         return render(request, 'article_board_of_director.html', {'detail': object})
+    
+
+'''def like_post(request, post_id):
+    post = ConstructionPost.objects.get(id=post_id)
+    like, created = Like.objects.get_or_create(user=request.user, post=post)
+    if not created:
+        like.delete()
+    return redirect('like-post', post_id=post_id)'''
+
+def like_post(request, post_id):
+    post = ConstructionPost.objects.get(pk=post_id)
+    like, created = Like.objects.get_or_create(user=request.user, post=post)
+    if not created:
+        like.delete()
+    # Redirect the user to the same page or a different page
+    return redirect(reverse('/detail', kwargs={'post_id': post_id}))

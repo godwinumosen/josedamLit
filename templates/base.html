@@ -99,7 +99,7 @@
               </ul>
             </div>
             <div class="col-md-3 footer-item">
-              <a href="https://find-and-update.company-information.service.gov.uk/company/12479916/officers"><h4>Website Links</h4><a/>
+              <a href="https://find-and-update.compan-information.service.gov.uk/company/12479916/officers"><h4>Website Links</h4><a/>
               <ul class="menu-list">
                 <li><a href="#">No link</a></li>
                 <li><a href="#">No link</a></li>
@@ -117,34 +117,7 @@
                 <li><a href="{% url 'signup' %}">Register with Us</a></li>
               </ul>
             </div>
-            <div class="col-md-3 footer-item last-item">
-              <a href="{% url 'contact' %}"><h4>Contact Us</h4></a>
-              <div class="contact-form">
-                <form method="POST">
-                  {% csrf_token %}
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="filled-button">Send Message</button>
-                      </fieldset>
-                    </div>
-                  </div>
-                </form>
+
               </div>
             </div>
           </div>

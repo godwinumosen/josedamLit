@@ -18,5 +18,7 @@ urlpatterns = [
    path('article_team/<int:pk>/', ArticleTeamDetailView.as_view(), name="detail-team"),
    path('director/', TeamDirectorView.as_view(), name='director'),
    path('article_board_of_director/<int:pk>/', ArticleBoardOfDirectorDetailView.as_view(), name="detail-director"),
+   path('article/<int:post_id>/like/', views.like_post, name='like-post'),
+   
 
 ]

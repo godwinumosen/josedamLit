@@ -1,0 +1,18 @@
+<!-- post_detail.html -->
+
+{% if request.user.is_authenticated %}
+  {% if request.user in post.like_set.all %}
+    <form action="{% url 'like-post' post_id=post.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Unlike</button>
+    </form>
+  {% else %}
+    <form action="{% url 'like-post' post_id=post.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Like</button>
+    </form>
+  {% endif %}
+{% endif %}
+
+<!-- Display like count -->
+{{ post.like_set.count }}

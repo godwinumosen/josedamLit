@@ -4,7 +4,7 @@ from django.urls import reverse
 from datetime import datetime, date
 
 
-
+# The main Josepdam Model
 class ConstructionPost(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
@@ -24,7 +24,7 @@ class ConstructionPost(models.Model):
     def get_absolute_url(self):
         return reverse ('home')
     
-
+# The Josepdam team Model
 class TeamsPost (models.Model):
     worker_name = models.CharField (max_length = 200, blank=True, null=True)
     worker_position = models.CharField (max_length = 200, blank=True, null=True)
@@ -43,7 +43,7 @@ class TeamsPost (models.Model):
     def __str__(self):
         return self.worker_name + ' | ' + str(self.author)
     
-
+# The josepdam board of director Model
 class Board_Of_DirectorPost (models.Model):
     board_of_director_name = models.CharField (max_length = 200, blank=True, null=True)
     board_of_director_position = models.CharField (max_length = 200, blank=True, null=True)
@@ -61,3 +61,10 @@ class Board_Of_DirectorPost (models.Model):
     
     def __str__(self):
         return self.board_of_director_name + ' | ' + str(self.author)
+    
+
+# The like and unlike model for each property
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(ConstructionPost, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

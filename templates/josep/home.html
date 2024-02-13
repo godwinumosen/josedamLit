@@ -75,7 +75,7 @@
               </a>
               <div class="down-content">
                 <h4>
-                  <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:2 }}</a>
+                  <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:23 }}</a>
                 </h4>
                 <p>{{ post.description|truncatechars:55 }}</p>
                 <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a>

@@ -1,55 +1,53 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Josepdam Boad of Director {% endblock %}
-{% block content %}
-  
-    
-    <!-- Team Director Page Content -->
+{% block title %} {% endblock %}
+{% block content%}
+
+    <!-- Page Content -->
     <div class="page-heading header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Blog Properties</h1>
-            <span>Our Blog Page is Still Under Developement...</span>
+            <h1>Read our Blog</h1>
+            <span>Lorem ipsum dolor sit amet consectetur</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="services">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="section-heading">
-                <h2>Blog Properties,<em>Loading...</em></h2>
-                <span>Josepdam Real estate is a lucrative venture that involves purchasing undervalued properties</span>
-              </div>
-            </div>
-  
-            {% for post in object_list %}
-            <div class="col-md-4">
-              <div class="service-item">
+    <div class="single-services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <section class='tabs-content'>
+              {% for post in object_list %} 
+
+              <article id='tabs-2'>
                 <a href="{% url 'detail' post.pk %}">
-                  {% if post.img %}
-                  <img src="{{ post.img.url }}" alt="">
-                  {% endif %}
-                </a>
-                <div class="down-content">
-                  <h4>
-                    <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:25 }}</a>
-                  </h4>
-                  <p>{{ post.description|truncatechars:55 }}</p>
-                  <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a>
+                {% if post.img %}
+                <img src="{{ post.img.url }}" alt="">
+                {% endif %}
+              </a>
+              <h4><a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:30 }}</a></h4>
+                <div style="margin-bottom:10px;">
+                  <span>Posted by: {{post.author}}&nbsp;|&nbsp; {{ post.publish_date }} &nbsp;|&nbsp;<span>
                 </div>
-              </div>
-              <br>
-            </div>
-            {% endfor %}
+                <p>{{ post.description|truncatechars:150 }}</p>
+                <br>
+                <div>
+                  <a href="{% url 'detail' post.pk %}" class="filled-button">Continue Reading</a>
+                </div><br>
+              </article>
+              {% endfor %}
+            </section>
           </div>
+
         </div>
       </div>
-  
-    
+    </div>
 
+    <br>  
+    <br>  
+    <br>  
+  
     {% endblock %}
-   

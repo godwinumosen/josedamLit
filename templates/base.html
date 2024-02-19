@@ -58,8 +58,11 @@
                 <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+              <li class="nav-item dropdown">
+                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'blog' %}">Properties</a>
+                </div>
               </li>
               
               <li class="nav-item dropdown">
@@ -112,7 +115,7 @@
               <ul class="menu-list">
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 <li><a href="{% url 'team' %}">Our Team</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
                 <li><a href="{% url 'contact' %}">Contact Us</a></li>
                 <li><a href="{% url 'signup' %}">Register with Us</a></li>
               </ul>

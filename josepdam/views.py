@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost
 from django.contrib import messages
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -16,6 +16,10 @@ def base (request):
 class HomeView(ListView):
     model = ConstructionPost
     template_name = 'josep/home.html'
+
+class BlogView(ListView):
+    model = BlogPost
+    template_name = 'josep/blog.html'
 
 #The ArticleDetailView page
 class ArticleDetailView(DetailView):

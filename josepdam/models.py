@@ -14,6 +14,8 @@ class ConstructionPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
     rent = models.IntegerField()
+    size = models.IntegerField()
+    bedroom = models.IntegerField()
     location = models.CharField(max_length = 200,blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
 

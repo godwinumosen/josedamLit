@@ -4,15 +4,13 @@
 {% block content%}
 
     <!-- Page Content -->
-    <div class="page-heading header-text">
+    <div class="page-headin header-text">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-
-              <h3> <small><del></small> <sup></sup>{{ object.rent }}Sqft</h3>
-            <h2> <small><del></small> <sup></sup>{{ object.price }}Sqft</h2>
-            <span>{{ object.location }}</span><br>
-            <a href="https://www.google.com/maps/place/19+Fatai+Atere+Way,+Papa+Ajao,+Lagos+102215,+Lagos/@6.5426072,3.346583,17z/data=!3m1!4b1!4m6!3m5!1s0x103b8ddcceb1bde9:0x7414a521bcbf2a78!8m2!3d6.5426072!4d3.3491579!16s%2Fg%2F11c2cl8dnh?entry=ttu" class="btn btn-blue">Click Map For Location</a>
+            <h2> <small><del></small> <sup></sup>  </h2>
+            <span> </span><br>
+            <a " " class="btn btn-blue"> </a>
           </div>
         </div>
       </div>
@@ -28,16 +26,60 @@
               {% endif %}
             </div> <br>
           </div>
+          
+          <div class="col-md-5">
+            <form action="#" method="post" class="form">
+              <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                    <div class="clearfix">
+                         <span class="pull-left">Type</span>
+                         <strong class="pull-right">{{ object.title|truncatechars:14 }}</strong>
+                    </div>
+               </li>
+
+               <li class="list-group-item">
+                    <div class="clearfix">
+                         <span class="pull-left">Rent</span>
+                         <strong class="pull-right"> ₦{{ object.rent }}</strong>
+                    </div>
+               </li>
+
+               <li class="list-group-item">
+                    <div class="clearfix">
+                         <span class="pull-left">Price</span>
+                         <strong class="pull-right"> ₦{{ object.price }}</strong>
+                    </div>
+               </li>
+
+               <li class="list-group-item">
+                    <div class="clearfix">
+                         <span class="pull-left">Size</span>
+                         <strong class="pull-right">{{ object.size }}Sqm</strong>
+                    </div>
+               </li>
+               <li class="list-group-item">
+                <div class="clearfix">
+                     <span class="pull-left">Bedroom</span>
+                     <strong class="pull-right">{{ object.bedroom }}</strong>
+                </div>
+           </li>
+               <li class="list-group-item">
+                <div class="clearfix">
+                     <span class="pull-left">Location</span>
+                     <strong class="pull-right">{{ object.location }}</strong>
+                </div>
+           </li>
         </div> <br>
+        
         <div class="tabs-content" style="display: block;">
           <h4>{{ object.title }}</h4>
           <p>{{ object.description|truncatechars:9000 }}</p>
-        </div> <hr>
+        </div>
         <span>
            <a href="{% url 'home' %}" class="btn btn-primary"><i class="fa fa-angle-left">Back</i></a>
            <a href="{% url 'contact' %}" class="btn btn-primary"y"><small>Contact </small></a>
-            <small> Posted:&nbsp;|&nbsp; </small> {{ object.publish_date }}|
-
+            <small> Posted:&nbsp;|&nbsp; </small> {{ object.publish_date }} |
+        </span>
 
           {% if request.user.is_authenticated %}
             {% if request.user in object.like_set.all %}
@@ -49,14 +91,14 @@
           {% else %}
             <form action="{% url 'like-post' post_id=object.id %}" method="post">
               {% csrf_token %}
-              <button type="submit" class="btn btn-primary">Like</button
+              <!-- <button type="submit" class="btn btn-primary">Like</button -->
             </form>
           {% endif %}
         {% endif %}
 
           <!-- Display like count -->
-          <p>Likes: {{ object.like_set.count }}</p>
-        </span>
+          <p> Likes: {{ object.like_set.count }}</p>
+        
           <div class="col-lg-3">
             <div class="tabs-content">
               <h4><small>Posted by: {{object.author}}</small></h4>

@@ -95,6 +95,15 @@ class ArticleBoardOfDirectorDetailView(DetailView):
         object = get_object_or_404(Board_Of_DirectorPost, pk=pk)
         return render(request, 'article_board_of_director.html', {'detail': object})
     
+#the desplay details for blog post
+class ArticleBlogDetailView(DetailView):
+    model = BlogPost
+    template_name = 'josep/blog_article_detail.html'
+
+    def ArticleBlogDetailView(request, pk):  
+        object = get_object_or_404(Board_Of_DirectorPost, pk=pk)
+        return render(request, 'blog_article_detail.html', {'detail': object})
+
 
 
 def like_post(request, post_id):

@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-12">
             <h1>Read our Blog</h1>
-            <span>Lorem ipsum dolor sit amet consectetur</span>
+            <span>Josepdam Real Estate Properties Are For You</span>
           </div>
         </div>
       </div>
@@ -28,6 +28,7 @@
                 <img src="{{ post.img.url }}" alt="">
                 {% endif %}
               </a>
+              
               <h4><a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:30 }}</a></h4>
                 <div style="margin-bottom:10px;">
                   <span>Posted by: {{post.author}}&nbsp;|&nbsp; {{ post.publish_date }} &nbsp;|&nbsp;<span>

@@ -30,10 +30,13 @@ class ConstructionPost(models.Model):
         return reverse ('home')
     
 
-class Location(models.Model):
-    street = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
+class Search(models.Model):
+    address = models.CharField(max_length=100)
+    date = models.DateTimeField (auto_now_add= True)
+
+    def __str__(self):
+        return self.address 
+    
 
 # The like and unlike model for each property
 class Like(models.Model):

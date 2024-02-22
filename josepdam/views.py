@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost, Location
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost, Search
 from django.contrib import messages
+from django.http import HttpResponse
 import folium
+from .forms import SearchForm
 import geocoder
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -128,16 +130,27 @@ def like_post(request, post_id):
 
 
 def location(request):
-    #address = request.POST.get('address')
-    locations1 = geocoder.osm('Lagos')
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('location')
+    else:
+        form = SearchForm()
+    address = Search.objects.all().last()
+    locations1 = geocoder.osm(address)
     lat =locations1.lat
     lng =locations1.lng
     country =locations1.country
-    locations = folium.Map(map_location=[19, 12], zoom_start=2)
+    if lat == None or lng == None:
+        address.delete()
+        return HttpResponse('Your address have to be country or state..')
+    locations = folium.Map(map_location=[19, 12], zoom_start=10)
     folium.Marker([lat, lng], tooltip='Click for more', popup=country).add_to(locations)
     locations=locations._repr_html_()
     context = {
         'locations':locations,
+        'form':form,
     }
     return render(request, 'josep/location.html', context)
 

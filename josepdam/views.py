@@ -3,8 +3,11 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.decorators import login_required
 from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost, Location
 from django.contrib import messages
+import folium
+import geocoder
 from django.urls import reverse
 from django.urls import reverse_lazy
+
 
 def base (request):
     return render(request,"base.html")
@@ -125,5 +128,16 @@ def like_post(request, post_id):
 
 
 def location(request):
-    locations = Location.objects.all()
-    return render(request, 'josep/location.html', {'locations': locations})
+    #address = request.POST.get('address')
+    locations1 = geocoder.osm('Lagos')
+    lat =locations1.lat
+    lng =locations1.lng
+    country =locations1.country
+    locations = folium.Map(map_location=[19, 12], zoom_start=2)
+    folium.Marker([lat, lng], tooltip='Click for more', popup=country).add_to(locations)
+    locations=locations._repr_html_()
+    context = {
+        'locations':locations,
+    }
+    return render(request, 'josep/location.html', context)
+

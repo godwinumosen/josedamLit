@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'josepdam', 
     'memberAccount',
+    'django_google_maps',
     
 ]
 

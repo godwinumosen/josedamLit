@@ -23,20 +23,20 @@
               {% for post in object_list %} 
 
               <article id='tabs-2'>
-                <a href="{% url 'detail' post.pk %}">
+                <a href="{% url 'detail-blog' post.pk %}">
                 {% if post.img %}
                 <img src="{{ post.img.url }}" alt="">
                 {% endif %}
               </a>
               
-              <h4><a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:30 }}</a></h4>
+              <h4><a href="{% url 'detail-blog' post.pk %}">{{ post.title|truncatechars:30 }}</a></h4>
                 <div style="margin-bottom:10px;">
                   <span>Posted by: {{post.author}}&nbsp;|&nbsp; {{ post.publish_date }} &nbsp;|&nbsp;<span>
                 </div>
                 <p>{{ post.description|truncatechars:150 }}</p>
                 <br>
                 <div>
-                  <a href="{% url 'detail' post.pk %}" class="filled-button">Continue Reading</a>
+                  <a href="{% url 'detail-blog' post.pk %}" class="filled-button">Continue Reading</a>
                 </div><br>
               </article>
               {% endfor %}

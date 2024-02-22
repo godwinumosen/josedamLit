@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost, Location
 from django.contrib import messages
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -34,7 +34,7 @@ def blog (request):
 
     return render (request, 'josep/blog.html', {})   
 
-# The Contact
+# The Contact view been implemented
 def contact (request):
     email='josepdam@gmail.com'
     if request.method == 'POST':
@@ -96,16 +96,15 @@ class ArticleBoardOfDirectorDetailView(DetailView):
         return render(request, 'article_board_of_director.html', {'detail': object})
     
 #the desplay details for blog post
-class ArticleBlogDetailView(DetailView):
+class BlogArticleDetailView(DetailView):
     model = BlogPost
     template_name = 'josep/blog_article_detail.html'
 
-    def ArticleBlogDetailView(request, pk):  
+    def BlogArticleDetailView(request, pk):  
         object = get_object_or_404(Board_Of_DirectorPost, pk=pk)
         return render(request, 'blog_article_detail.html', {'detail': object})
 
-
-
+#The like view of the details page
 def like_post(request, post_id):
     post = ConstructionPost.objects.get(pk=post_id)
     like, created = Like.objects.get_or_create(user=request.user, post=post)
@@ -115,6 +114,7 @@ def like_post(request, post_id):
     return redirect(reverse('like-post', kwargs={'post_id': post_id}))
     
 
+#The like view of the details page
 def like_post(request, post_id):
     post = get_object_or_404(ConstructionPost, pk=post_id)
     like, created = Like.objects.get_or_create(user=request.user, post=post)
@@ -122,3 +122,8 @@ def like_post(request, post_id):
         like.delete()
     # Redirect the user back to the article detail page
     return redirect(reverse('detail', kwargs={'pk': post_id}))
+
+
+def location(request):
+    locations = Location.objects.all()
+    return render(request, 'josep/location.html', {'locations': locations})

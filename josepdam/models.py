@@ -15,9 +15,10 @@ class ConstructionPost(models.Model):
     price = models.IntegerField()
     rent = models.IntegerField()
     size = models.IntegerField()
-    bedroom = models.IntegerField()
+    details = models.CharField(max_length = 200,blank=True, null=True)
     location = models.CharField(max_length = 200,blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
+    #google_maps_address = models.CharField(max_length=200)
 
     class Meta:
         ordering =['-publish_date']
@@ -28,6 +29,12 @@ class ConstructionPost(models.Model):
     def get_absolute_url(self):
         return reverse ('home')
     
+
+class Location(models.Model):
+    street = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+
 # The like and unlike model for each property
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -83,6 +90,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField()
     location = models.CharField(max_length = 200,blank=True, null=True)
+    
     
 
     class Meta:

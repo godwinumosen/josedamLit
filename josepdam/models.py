@@ -3,7 +3,14 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
 
+#The search button model of locatin
+class Search(models.Model):
+    address = models.CharField(max_length=100)
+    date = models.DateTimeField (auto_now_add= True)
 
+    def __str__(self):
+        return self.address 
+    
 # The main Josepdam Model
 class ConstructionPost(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
@@ -18,7 +25,7 @@ class ConstructionPost(models.Model):
     details = models.CharField(max_length = 200,blank=True, null=True)
     location = models.CharField(max_length = 200,blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
-    #google_maps_address = models.CharField(max_length=200)
+    search = models.ManyToManyField(Search)
 
     class Meta:
         ordering =['-publish_date']
@@ -28,14 +35,7 @@ class ConstructionPost(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
-    
 
-class Search(models.Model):
-    address = models.CharField(max_length=100)
-    date = models.DateTimeField (auto_now_add= True)
-
-    def __str__(self):
-        return self.address 
     
 
 # The like and unlike model for each property

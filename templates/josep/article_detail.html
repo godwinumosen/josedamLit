@@ -62,6 +62,13 @@
                      <span class="pull-left">Description</span>
                      <strong class="pull-right">{{ object.details }}</strong>
                 </div>
+                <li class="list-group-item">
+                  <div class="clearfix">
+                       <span class="pull-left">Click Map</span>
+                       <a href="{% url 'location' %}"> <strong class="pull-right"> Map</strong>
+                       </div></a>
+                  </li>
+
            </li>
                <li class="list-group-item">
                 <div class="clearfix">
@@ -70,12 +77,7 @@
                 </div>
            </li>
           </li>
-          <li class="list-group-item">
-           <div class="clearfix">
-                <span class="pull-left">Click Map</span>
-                <strong class="pull-right">{{ location.title }}</strong>
-           </div>
-      </li>
+        
         </div> <br>
         
         <div class="tabs-content" style="display: block;">

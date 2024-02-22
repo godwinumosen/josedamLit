@@ -128,7 +128,7 @@ def like_post(request, post_id):
     # Redirect the user back to the article detail page
     return redirect(reverse('detail', kwargs={'pk': post_id}))
 
-
+# Map location from the database system
 def location(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
@@ -138,6 +138,7 @@ def location(request):
     else:
         form = SearchForm()
     address = Search.objects.all().last()
+    address = 'Lekki Lagos Nigeria'
     locations1 = geocoder.osm(address)
     lat =locations1.lat
     lng =locations1.lng
@@ -145,7 +146,7 @@ def location(request):
     if lat == None or lng == None:
         address.delete()
         return HttpResponse('Your address have to be country or state..')
-    locations = folium.Map(map_location=[19, 12], zoom_start=10)
+    locations = folium.Map(map_location=[19, 12], zoom_start=600)
     folium.Marker([lat, lng], tooltip='Click for more', popup=country).add_to(locations)
     locations=locations._repr_html_()
     context = {

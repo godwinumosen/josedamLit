@@ -156,12 +156,3 @@ def location(request):
     return render(request, 'josep/location.html', context)
 
 
-
-
-def map(request):
-    form = SearchForm2(request.GET)
-    results = []
-    if form.is_valid():
-        address = form.cleaned_data['address']
-        results = Search.objects.filter(address__icontains=address)
-    return render(request, 'josep/map.html', {'form': form, 'results': results})

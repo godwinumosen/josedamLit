@@ -23,7 +23,6 @@ urlpatterns = [
    #path('post/<int:post_id>/like/', views.like_post, name='post-detail'),
    path('article/<int:post_id>/like/', views.like_post, name='like-post'),
    path('location/', views.location, name='location'),
-   path('map',views.map, name="map"),
    
 
 ]

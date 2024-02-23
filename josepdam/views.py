@@ -5,7 +5,7 @@ from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, Bl
 from django.contrib import messages
 from django.http import HttpResponse
 import folium
-from .forms import SearchForm
+from .forms import SearchForm,SearchForm2
 import geocoder
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -138,7 +138,7 @@ def location(request):
     else:
         form = SearchForm()
     address = Search.objects.all().last()
-    address = 'Lekki Lagos Nigeria'
+    #address = 'Lekki Lagos Nigeria'
     locations1 = geocoder.osm(address)
     lat =locations1.lat
     lng =locations1.lng
@@ -155,3 +155,13 @@ def location(request):
     }
     return render(request, 'josep/location.html', context)
 
+
+
+
+def map(request):
+    form = SearchForm2(request.GET)
+    results = []
+    if form.is_valid():
+        address = form.cleaned_data['address']
+        results = Search.objects.filter(address__icontains=address)
+    return render(request, 'josep/map.html', {'form': form, 'results': results})

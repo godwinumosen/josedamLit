@@ -1,11 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost, Search
+from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost
 from django.contrib import messages
 from django.http import HttpResponse
 import folium
-from .forms import SearchForm
 import geocoder
 from django.urls import reverse
 from django.urls import reverse_lazy
@@ -129,7 +128,7 @@ def like_post(request, post_id):
     return redirect(reverse('detail', kwargs={'pk': post_id}))
 
 # Map location from the database system
-def location(request):
+'''def location(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -153,6 +152,4 @@ def location(request):
         'locations':locations,
         'form':form,
     }
-    return render(request, 'josep/location.html', context)
-
-
+    return render(request, 'josep/location.html', context)'''

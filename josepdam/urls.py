@@ -22,7 +22,7 @@ urlpatterns = [
     path('article_board_of_director/<int:pk>/', ArticleBoardOfDirectorDetailView.as_view(), name="detail-director"),
     #path('post/<int:post_id>/like/', views.like_post, name='post-detail'),
     path('article/<int:post_id>/like/', views.like_post, name='like-post'),
-    path('location/', views.location, name='location'),
+    #path('location/', views.location, name='location'),
    
 
 ]

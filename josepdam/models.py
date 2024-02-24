@@ -52,7 +52,7 @@ class TeamsPost (models.Model):
     worker_img = models.ImageField(upload_to='images')
     slug = models.SlugField (max_length=25)
     publish_date = models.DateTimeField (auto_now_add= True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         ordering =['-publish_date']

@@ -125,7 +125,7 @@ def like_post(request, post_id):
     if not created:
         like.delete()
     # Redirect the user back to the article detail page
-    return redirect(reverse('detail', kwargs={'pk': post_id}))
+    return redirect(reverse('detail', kwargs={'pk': post_id})
 
 # Map location from the database system
 '''def location(request):

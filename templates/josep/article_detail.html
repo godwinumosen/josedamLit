@@ -87,7 +87,7 @@
         <span>
            <a href="{% url 'home' %}" class="btn btn-primary"><i class="fa fa-angle-left">Back</i></a>
            <a href="{% url 'contact' %}" class="btn btn-primary"y"><small>Contact </small></a>
-            <small> Posted:&nbsp;|&nbsp; </small> {{ object.publish_date }} |
+            <small> Posted by:&nbsp;|&nbsp; </small> {{ object.publish_date }} |
         </span>
 
           {% if request.user.is_authenticated %}

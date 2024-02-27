@@ -9,8 +9,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>{{ object.title }}</h1>
-            <span>Posted:<i class="fa fa-user"></i> {{ object.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ object.publish_date }}</span>
+            <h2>{{ object.title }}</h2><br>
+            <h5>Price: {{ object.price }}</h5><br>
+            <span>Posted: <i class="fa fa-user"></i> {{ object.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ object.publish_date }}</span>
           </div>
         </div>
       </div>
@@ -29,7 +30,7 @@
             <p> {{ object.description |truncatechars:9000}} </p>
           </div>
           <span> <a href="{% url 'blog' %}" class="btn btn-primary"><i class="fa fa-angle-left">Back</i>
-              </a>&nbsp;| Posted: <i class="fa fa-user"></i> {{ object.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i>
+              </a>&nbsp;| Posted by: <i class="fa fa-user"></i> {{ object.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i>
              {{ object.publish_date }}</span>
         </div><br>
       </div>

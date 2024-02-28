@@ -5,7 +5,7 @@ from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, Bl
 from django.contrib import messages
 from django.http import HttpResponse
 import folium
-import geocoder
+
 from django.urls import reverse
 from django.urls import reverse_lazy
 

@@ -29,7 +29,7 @@
             <br>
             <p> {{ object.description |truncatechars:9000}} </p>
           </div>
-          <span> <a href="{% url 'blog' %}" class="btn btn-primary"><i class="fa fa-angle-left">Back</i>
+          <span> <a href="{% url 'blog' %}" class="btn btn-info"><i class="fa fa-angle-left">Back</i>
               </a>&nbsp;| Posted by: <i class="fa fa-user"></i> {{ object.author }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i>
              {{ object.publish_date }}</span>
         </div><br>

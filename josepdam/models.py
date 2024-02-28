@@ -59,7 +59,7 @@ class TeamsPost (models.Model):
 # The josepdam board of director Model
 class Board_Of_DirectorPost (models.Model):
     board_of_director_name = models.CharField (max_length = 200, blank=True, null=True)
-    board_of_director_position = models.CharField (max_length = 200, blank=True, null=True)
+    board_of_director_position = models.CharField (max_length = 210, blank=True, null=True)
     board_of_director_description = models.TextField()
     board_of_director_img = models.ImageField(upload_to='images_dir')
     slug = models.SlugField (max_length=25)

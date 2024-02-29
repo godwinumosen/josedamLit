@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView,ListView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost, TeamsPost, Board_Of_DirectorPost, Like, BlogPost
+from .models import ConstructionPost,SecondConstruction , TeamsPost, Board_Of_DirectorPost, Like, BlogPost
+from .models import SecondConstruction
 from django.contrib import messages
 from django.http import HttpResponse
 import folium
-
 from django.urls import reverse
 from django.urls import reverse_lazy
 
@@ -13,17 +13,16 @@ from django.urls import reverse_lazy
 def base (request):
     return render(request,"base.html")
 
-'''def home (request):
-    return render(request,"josep/home.html", {})'''
-
-#The main HomeView page
+#The main HomeView page and the subpage
 class HomeView(ListView):
     model = ConstructionPost
+    #model = SecondConstruction
     template_name = 'josep/home.html'
+    
 
-class BlogView(ListView):
-    model = BlogPost
-    template_name = 'josep/blog.html'
+'''def SecondHomeView(request):
+    posts = SecondConstruction.objects.all()    
+    return render(request, 'josep/home.html', {'posts': posts})'''
 
 #The ArticleDetailView page
 class ArticleDetailView(DetailView):
@@ -33,6 +32,20 @@ class ArticleDetailView(DetailView):
     def ArticleDetailView(request, pk):  
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
+
+#The ArticleDetailView page
+'''class ArticleDetailView(DetailView):
+    model = ConstructionPost
+    template_name = 'josep/article_detail.html'
+
+    def ArticleDetailView(request, pk):  
+        object = get_object_or_404(ConstructionPost, pk=pk)
+        return render(request, 'article_detail.html', {'detail': object})'''
+
+#The blog view for josepdam property    
+class BlogView(ListView):
+    model = BlogPost
+    template_name = 'josep/blog.html'
 
 def blog (request):
 

@@ -28,6 +28,27 @@ class ConstructionPost(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
+    
+#The second main Josepdam Model
+class SecondConstruction(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField()
+    slug = models.SlugField (max_length=255)
+    image1 = models.ImageField ( upload_to= 'image2/')
+    publish_date = models.DateTimeField (auto_now_add= True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    size = models.IntegerField()
+    details = models.CharField(max_length = 200,blank=True, null=True)
+    location = models.CharField(max_length = 200,blank=True, null=True)
+    
+    class Meta:
+        ordering =['-publish_date']
+    
+    def __str__(self):
+        return self.title+ ' | ' + str(self.author)
+    
+    def get_absolute_url(self):
+        return reverse ('home')
 
     
 

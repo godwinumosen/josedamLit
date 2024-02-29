@@ -61,7 +61,7 @@
           <div class="col-md-12">
             <div class="section-heading">
               <h2>Featured <em>Properties</em></h2>
-              <span>Josepdam Real estate is a lucrative venture that involves purchasing undervalued properties</span>
+              <span>Josepdam Real estate is a lucrative venture that involves in properties</span>
             </div>
           </div>
 
@@ -113,6 +113,44 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+    <!--Second category -->
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Josepdam<em>Properties</em></h2>
+              <span>Josepdam Real estate properties</span>
+            </div>
+          </div>
+          {% for post in object_list %}
+              <div class="col-md-4">
+                <div class="service-item">
+                  <a href="">
+                    {% if post.image1 %}
+                    <img src="{{ post.image1.url }}" alt="{{ post.title }}">
+                    {% endif %}
+                  </a>
+                  <div class="down-content">
+                    <h4>
+                      <a href="">{{ post.title|truncatechars:16 }}</a>
+                    </h4>
+                    <p>{{ post.description|truncatechars:55 }}</p>
+                    <a href="" class="filled-button">View More</a>
+                  </div>
+                </div>
+                 <br>
+              </div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+
 
 
 

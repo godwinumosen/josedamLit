@@ -21,7 +21,7 @@ class HomeView(ListView):
 #This model is for the sub category of the blog
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['second_constructions'] = SecondConstruction.objects.all(
+        context['second_constructions'] = SecondConstruction.objects.all()
         return context
 
 

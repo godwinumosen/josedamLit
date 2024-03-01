@@ -22,7 +22,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['second_constructions'] = SecondConstruction.objects.all()
-        return contex
+        return context
 
 
 #The first ArticleDetailView page

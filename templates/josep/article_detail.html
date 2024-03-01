@@ -32,43 +32,43 @@
               <ul class="list-group list-group-flush">
                <li class="list-group-item">
                     <div class="clearfix">
-                         <span class="pull-left">Type</span>
+                         <span class="pull-left">Type :</span>
                          <strong class="pull-right">{{ object.title|truncatechars:14 }}</strong>
                     </div>
                </li>
 
                <li class="list-group-item">
                     <div class="clearfix">
-                         <span class="pull-left">Rent</span>
-                         <strong class="pull-right"> ₦{{ object.rent }}</strong>
+                         <span class="pull-left">Rent :</span>
+                         <strong class="pull-right"> {{ object.rent }}</strong>
                     </div>
                </li>
 
                <li class="list-group-item">
                     <div class="clearfix">
-                         <span class="pull-left">Size</span>
+                         <span class="pull-left">Size :</span>
                          <strong class="pull-right">{{ object.size }}Sqm</strong>
                     </div>
                </li>
-               <li class="list-group-item">
-                <div class="clearfix">
-                     <span class="pull-left">Description</span>
-                     <strong class="pull-right">{{ object.details }}</strong>
-                </div>
                 <li class="list-group-item">
                   <div class="clearfix">
-                       <span class="pull-left">Click Map</span>
+                       <span class="pull-left">Click Map :</span>
                        <a href="https://www.google.com/maps/@6.5352339,3.3489682,15z?entry=ttu"> <strong class="pull-right"> Map</strong>
                        </div></a>
                   </li>
-
-           </li>
-               <li class="list-group-item">
-                <div class="clearfix">
-                     <span class="pull-left">Location</span>
-                     <strong class="pull-right">{{ object.location }}</strong>
-                </div>
-           </li>
+              </li>
+              
+           <li class="list-group-item">
+            <div class="clearfix">
+                 <span class="pull-left">Description :</span>
+                 <strong class="pull-right">{{ object.details }}</strong>
+            </div>
+            <li class="list-group-item">
+              <div class="clearfix">
+                   <span class="pull-left">Location :</span>
+                   <strong class="pull-right">{{ object.location }}</strong>
+              </div>
+         </li>
           </li>
         
         </div> <br>

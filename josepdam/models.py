@@ -13,9 +13,8 @@ class ConstructionPost(models.Model):
     img = models.ImageField ( upload_to= 'image/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    
-    rent = models.IntegerField()
-    size = models.IntegerField()
+    rent = models.CharField(max_length = 50,blank=True, null=True)
+    size = models.CharField(max_length = 50,blank=True, null=True)
     details = models.CharField(max_length = 200,blank=True, null=True)
     location = models.CharField(max_length = 200,blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='blog_posts')

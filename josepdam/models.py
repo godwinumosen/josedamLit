@@ -37,9 +37,9 @@ class SecondConstruction(models.Model):
     image1 = models.ImageField ( upload_to= 'image3/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    rent = models.CharField(max_length = 200,blank=True, null=True)
-    details = models.CharField(max_length = 200,blank=True, null=True)
-    location = models.CharField(max_length = 200,blank=True, null=True)
+    rent = models.CharField(max_length = 50,blank=True, null=True)
+    details = models.CharField(max_length = 100,blank=True, null=True)
+    location = models.CharField(max_length = 100,blank=True, null=True)
     
     class Meta:
         ordering =['-publish_date']

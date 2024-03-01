@@ -34,7 +34,7 @@ class SecondConstruction(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField()
     slug = models.SlugField (max_length=255)
-    image1 = models.ImageField ( upload_to= 'image2/')
+    image1 = models.ImageField ( upload_to= 'image3/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     size = models.IntegerField()

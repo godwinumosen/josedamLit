@@ -128,19 +128,19 @@
               <span>Josepdam Real estate properties</span>
             </div>
           </div>
-          {% for post in object_list %}
+          {% for second_construction in second_constructions %}
               <div class="col-md-4">
                 <div class="service-item">
                   <a href="">
-                    {% if post.image1 %}
-                    <img src="{{ post.image1.url }}" alt="{{ post.title }}">
+                    {% if second_construction.image1 %}
+                    <img src="{{ second_construction.image1.url }}" alt="">
                     {% endif %}
                   </a>
                   <div class="down-content">
                     <h4>
-                      <a href="">{{ post.title|truncatechars:16 }}</a>
+                      <a href="">{{ second_construction.title|truncatechars:16 }}</a>
                     </h4>
-                    <p>{{ post.description|truncatechars:55 }}</p>
+                    <p>{{ second_construction.description|truncatechars:55 }}</p>
                     <a href="" class="filled-button">View More</a>
                   </div>
                 </div>

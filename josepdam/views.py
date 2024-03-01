@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView,ListView
 from django.contrib.auth.decorators import login_required
-from .models import ConstructionPost,SecondConstruction , TeamsPost, Board_Of_DirectorPost, Like, BlogPost
+from .models import ConstructionPost, SecondConstruction , TeamsPost, Board_Of_DirectorPost, Like, BlogPost
 from .models import SecondConstruction
 from django.contrib import messages
 from django.http import HttpResponse
@@ -13,16 +13,17 @@ from django.urls import reverse_lazy
 def base (request):
     return render(request,"base.html")
 
-#The main HomeView page and the subpage
+
+#The main HomeView page
 class HomeView(ListView):
     model = ConstructionPost
-    #model = SecondConstruction
     template_name = 'josep/home.html'
-    
 
-'''def SecondHomeView(request):
-    posts = SecondConstruction.objects.all()    
-    return render(request, 'josep/home.html', {'posts': posts})'''
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['second_constructions'] = SecondConstruction.objects.all()
+        return context
+
 
 #The ArticleDetailView page
 class ArticleDetailView(DetailView):
@@ -32,17 +33,7 @@ class ArticleDetailView(DetailView):
     def ArticleDetailView(request, pk):  
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
-
-#The ArticleDetailView page
-'''class ArticleDetailView(DetailView):
-    model = ConstructionPost
-    template_name = 'josep/article_detail.html'
-
-    def ArticleDetailView(request, pk):  
-        object = get_object_or_404(ConstructionPost, pk=pk)
-        return render(request, 'article_detail.html', {'detail': object})'''
-
-#The blog view for josepdam property    
+    
 class BlogView(ListView):
     model = BlogPost
     template_name = 'josep/blog.html'

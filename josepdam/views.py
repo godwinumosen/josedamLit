@@ -13,19 +13,19 @@ from django.urls import reverse_lazy
 def base (request):
     return render(request,"base.html")
 
-
 #The main HomeView page
 class HomeView(ListView):
     model = ConstructionPost
     template_name = 'josep/home.html'
 
+#This model is for the sub category of the blog
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['second_constructions'] = SecondConstruction.objects.all()
         return context
 
 
-#The ArticleDetailView page
+#The first ArticleDetailView page
 class ArticleDetailView(DetailView):
     model = ConstructionPost
     template_name = 'josep/article_detail.html'
@@ -33,6 +33,17 @@ class ArticleDetailView(DetailView):
     def ArticleDetailView(request, pk):  
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
+
+#The second ArticleDetailView page    
+class SecondConstructionDetailViewArticleDetailView(DetailView):
+    model = SecondConstruction
+    template_name = 'josep/second_article_detail.html'
+    context_object_name = 'second_construction'
+
+    def SecondConstructionDetailViewArticleDetailView(request, pk):  
+        object = get_object_or_404(SecondConstruction, pk=pk)
+        return render(request, 'josep/second_article_detail.html', {'second_detail': object})
+
     
 class BlogView(ListView):
     model = BlogPost

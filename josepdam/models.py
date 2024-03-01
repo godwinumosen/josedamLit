@@ -13,7 +13,7 @@ class ConstructionPost(models.Model):
     img = models.ImageField ( upload_to= 'image/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    price = models.IntegerField()
+    
     rent = models.IntegerField()
     size = models.IntegerField()
     details = models.CharField(max_length = 200,blank=True, null=True)
@@ -37,7 +37,7 @@ class SecondConstruction(models.Model):
     image1 = models.ImageField ( upload_to= 'image3/')
     publish_date = models.DateTimeField (auto_now_add= True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    size = models.IntegerField()
+    rent = models.CharField(max_length = 200,blank=True, null=True)
     details = models.CharField(max_length = 200,blank=True, null=True)
     location = models.CharField(max_length = 200,blank=True, null=True)
     

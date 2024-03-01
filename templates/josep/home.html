@@ -131,17 +131,17 @@
           {% for second_construction in second_constructions %}
               <div class="col-md-4">
                 <div class="service-item">
-                  <a href="">
+                  <a href="{% url 'second_detail' second_construction.pk %}">
                     {% if second_construction.image1 %}
                     <img src="{{ second_construction.image1.url }}" alt="">
                     {% endif %}
                   </a>
                   <div class="down-content">
                     <h4>
-                      <a href="">{{ second_construction.title|truncatechars:16 }}</a>
+                      <a href="{% url 'second_detail' second_construction.pk %}">{{ second_construction.title|truncatechars:20 }}</a>
                     </h4>
                     <p>{{ second_construction.description|truncatechars:55 }}</p>
-                    <a href="" class="filled-button">View More</a>
+                    <a href="{% url 'second_detail' second_construction.pk %}" class="filled-button">View More</a>
                   </div>
                 </div>
                  <br>

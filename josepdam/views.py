@@ -47,7 +47,7 @@ class SecondConstructionDetailViewArticleDetailView(DetailView):
     
 class BlogView(ListView):
     model = BlogPost
-    template_name = 'josep/blog.html
+    template_name = 'josep/blog.html'
 
 def blog (request):
 

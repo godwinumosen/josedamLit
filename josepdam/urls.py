@@ -15,6 +15,7 @@ urlpatterns = [
     path('blog/', BlogView.as_view(), name="blog"),
     path('article_blog/<int:pk>/', BlogArticleDetailView.as_view(), name="detail-blog"),
     path('contact/', views.contact, name='contact'),
+    path('video/', views.video, name='video'),
     path('message/', views.message, name='message'),
     path('team/', TeamView.as_view(), name='team'),
     path('article_team/<int:pk>/', ArticleTeamDetailView.as_view(), name="detail-team"),
@@ -22,7 +23,7 @@ urlpatterns = [
     path('article_board_of_director/<int:pk>/', ArticleBoardOfDirectorDetailView.as_view(), name="detail-director"),
     #path('post/<int:post_id>/like/', views.like_post, name='post-detail'),
     path('article/<int:post_id>/like/', views.like_post, name='like-post'),
-    #path('location/', views.location, name='location'),
+
    
 
 ]

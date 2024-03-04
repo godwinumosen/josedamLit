@@ -168,3 +168,7 @@ def like_post(request, post_id):
         'form':form,
     }
     return render(request, 'josep/location.html', context)'''
+
+def video (request):
+
+    return render(request,'josep/video.html')

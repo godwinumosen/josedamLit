@@ -45,7 +45,7 @@ class SecondConstructionDetailViewArticleDetailView(DetailView):
         return render(request, 'josep/second_article_detail.html', {'second_detail': object})
 
     
-class BlogView(ListView)
+class BlogView(ListView):
     model = BlogPost
     template_name = 'josep/blog.html'
 

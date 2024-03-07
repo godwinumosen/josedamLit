@@ -35,7 +35,7 @@
                 {% endif %}
               </a>
               <div class="down-content">
-                <a href="{% url 'detail-team' post.pk %}"><h4>{{ post.worker_name |truncatechars:25}}</h4></a>
+                <a href="{% url 'detail-team' post.pk %}"><h4>{{ post.worker_name |truncatechars:20}}</h4></a>
                 <span>{{ post.worker_position }}</span>
                 <p>{{ post.worker_description |truncatechars:55}}</p>
                 <p>

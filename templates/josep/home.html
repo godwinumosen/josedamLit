@@ -53,8 +53,60 @@
       </div>
     </div>
 
+    <!-- Page Content -->
+    <div class="more-info about-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="more-info-content">
+              <div class="row">
+                <div class="col-md-6 align-self-center">
+                  <div class="right-content">
+                    <h4>JOSEPDAM REAL <em>ESTATE </em></h4>
+                    <span>Property & Facility Management</span>
+                    <p>JosepDam real estate is known to yield higher returns than residential real estate. If you can afford to manage a property space, it can prove lucrative over time, depending on your area. The value of commercial real estate is determined in part by how much revenue it generates.
+                    <br><br>To undertake property development and redevelopment. To provide high quality, comfortable commercial and residential units in various parts of the country. To provide property consultancy services to both private and public sectors.</p>
+                  </div>
+                  <span>
+                    <a href="{% url 'contact' %}" class="btn btn-info">Contact JosepDam</i></a>
+                 </span>
+                </div>
+                <div class="col-md-6"><br>
+      
+                  <!--The beginning of the about slider-->
+                    <div id="imageSlider" class="carousel slide" data-ride="carousel">
+                       <div class="carousel-inner">
+                          <div class="carousel-item active">
+                             <img src="{% static 'assets/images/about1.jpg' %}" class="d-block w-100" alt="Image 1">
+                          </div>
+                          <div class="carousel-item">
+                             <img src="{% static 'assets/images/about2.jpg' %}" class="d-block w-100" alt="Image 2">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="{% static 'assets/images/about.jpg' %}" class="d-block w-100" alt="Image 2">
+                         </div>
+                          <!-- Add more carousel items as needed -->
+                       </div>
+                       <a class="carousel-control-prev" href="#imageSlider" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                       </a>
+                       <a class="carousel-control-next" href="#imageSlider" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                       </a>
+                    </div>       
+                 
 
-
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--The beginning of -->
     <div class="services">
       <div class="container">
         <div class="row">
@@ -64,7 +116,6 @@
               <span>Josepdam Real estate is a lucrative venture that involves in properties</span>
             </div>
           </div>
-
           {% for post in object_list %}
           <div class="col-md-4">
             <div class="service-item">

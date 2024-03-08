@@ -5,7 +5,6 @@ from .models import ConstructionPost, SecondConstruction , TeamsPost, Board_Of_D
 from .models import SecondConstruction
 from django.contrib import messages
 from django.http import HttpResponse
-import folium
 from django.urls import reverse
 from django.urls import reverse_lazy
 

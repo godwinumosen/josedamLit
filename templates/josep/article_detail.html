@@ -83,23 +83,7 @@
             <small> Posted by:&nbsp;|&nbsp; </small> {{ object.publish_date }} |
         </span>
 
-          {% if request.user.is_authenticated %}
-            {% if request.user in object.like_set.all %}
-              <form action="{% url 'like-post' post_id=object.id %}" method="post">
-               {% csrf_token %}
-               <button type="submit">Unlike</button
-            </form>
-            
-          {% else %}
-            <form action="{% url 'like-post' post_id=object.id %}" method="post">
-              {% csrf_token %}
-              <!-- <button type="submit" class="btn btn-primary">Like</button -->
-            </form>
-          {% endif %}
-        {% endif %}
 
-          <!-- Display like count -->
-          <!--<p> Likes: {{ object.like_set.count }}</p>-->
         
           <div class="col-lg-3">
             <div class="tabs-content">

@@ -17,7 +17,6 @@ class ConstructionPost(models.Model):
     size = models.CharField(max_length = 50,blank=True, null=True)
     details = models.CharField(max_length = 200,blank=True, null=True)
     location = models.CharField(max_length = 200,blank=True, null=True)
-    likes = models.ManyToManyField(User, related_name='blog_posts')
     
     class Meta:
         ordering =['-publish_date']
@@ -28,6 +27,7 @@ class ConstructionPost(models.Model):
     def get_absolute_url(self):
         return reverse ('home')
     
+
 #The second main Josepdam Model
 class SecondConstruction(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
@@ -48,7 +48,6 @@ class SecondConstruction(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
-
     
 
 # The like and unlike model for each property

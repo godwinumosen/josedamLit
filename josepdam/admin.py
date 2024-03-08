@@ -9,7 +9,6 @@ class ConstructionPostModelAdmin (admin.ModelAdmin):
     list_display = ['title','description','author','img']
 admin.site.register(ConstructionPost, ConstructionPostModelAdmin)
 
-
 #SecondConstruction post
 class SecondConstructiontModelAdmin (admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}

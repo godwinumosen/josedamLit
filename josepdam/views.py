@@ -23,8 +23,7 @@ class HomeView(ListView):
         context = super().get_context_data(**kwargs)
         context['second_constructions'] = SecondConstruction.objects.all()
         return context
-
-
+    
 #The first ArticleDetailView page
 class ArticleDetailView(DetailView):
     model = ConstructionPost
@@ -33,7 +32,7 @@ class ArticleDetailView(DetailView):
     def ArticleDetailView(request, pk):  
         object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
-
+    
 #The second ArticleDetailView page    
 class SecondConstructionDetailViewArticleDetailView(DetailView):
     model = SecondConstruction
@@ -172,3 +171,5 @@ def like_post(request, post_id):
 def video (request):
 
     return render(request,'josep/video.html')
+
+# Adding comment to the blog details

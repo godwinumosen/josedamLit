@@ -16,6 +16,7 @@ urlpatterns = [
     path('article_blog/<int:pk>/', BlogArticleDetailView.as_view(), name="detail-blog"),
     path('contact/', views.contact, name='contact'),
     path('video/', views.video, name='video'),
+    #path('comment/', views.comment, name='comment'),
     path('message/', views.message, name='message'),
     path('team/', TeamView.as_view(), name='team'),
     path('article_team/<int:pk>/', ArticleTeamDetailView.as_view(), name="detail-team"),

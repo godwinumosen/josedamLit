@@ -29,7 +29,7 @@ class ArticleDetailView(DetailView):
     template_name = 'josep/article_detail.html'
 
     def ArticleDetailView(request, pk):  
-        object = get_object_or_404(ConstruchtionPost, pk=pk)
+        object = get_object_or_404(ConstructionPost, pk=pk)
         return render(request, 'article_detail.html', {'detail': object})
     
 #The second ArticleDetailView page    

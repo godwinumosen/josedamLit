@@ -25,7 +25,7 @@ class HomeView(ListView):
     
 #The first ArticleDetailView page
 class ArticleDetailView(DetailView):
-    model = ConstructionPost
+    model = ConstructionPos
     template_name = 'josep/article_detail.html'
 
     def ArticleDetailView(request, pk):  

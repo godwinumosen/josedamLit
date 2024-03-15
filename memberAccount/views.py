@@ -25,8 +25,6 @@ def signup(request):
     
     return render (request, 'registration/signup.html', {})
 
-
-
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -44,8 +42,5 @@ def login_user(request):
     else:
         return render(request, 'registration/login_user.html')
 
-
 def login_message (request):
     return render(request, 'registration/login_message.html')
-
-

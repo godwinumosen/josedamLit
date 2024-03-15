@@ -31,7 +31,7 @@
             <div class="team-item">
               <a href="{% url 'detail-team' post.pk %}">
                 {% if post.worker_img %}
-                <img src="{{ post.worker_img.url }}" alt="">
+                <img src="{{ post.worker_img.url }}" height="250px" alt="">
                 {% endif %}
               </a>
               <div class="down-content">

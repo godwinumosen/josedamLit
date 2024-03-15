@@ -27,17 +27,17 @@
           </div>
         </div> <br>
         <div class="tabs-content" style="display: block;">
-          <h3>{{ object.board_of_director_name }}</h3>
-          <h6>{{ object.board_of_director_position }}</h6><br>
+          <h3>{{ object.board_of_director_name }}</h3><br>
+          <h5>{{ object.board_of_director_position }}</h5><br>
           <p>{{ object.board_of_director_description|truncatechars:9000 }}</p>
         </div> <hr>
         <span> 
            <a href="{% url 'director' %}" class="btn btn-info"><i class="fa fa-angle-left">Back</i></a>
-            <small>Posted: </small> {{ object.publish_date }} 
+            <!--<small>Posted: </small> {{ object.publish_date }} -->
         </span>
           <div class="col-lg-3">
             <div class="tabs-content">
-              <h4><small>Posted by: {{object.author}}</small></h4>
+             
             </div>
           </div>
         </div>

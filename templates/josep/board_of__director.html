@@ -31,11 +31,12 @@
             <div class="team-item">
               <a href="{% url 'detail-director' post.pk %}">
                 {% if post.board_of_director_img %}
-                <img src="{{ post.board_of_director_img.url }}" alt="">
+                <img src="{{ post.board_of_director_img.url }}" height="310px" alt="">
                 {% endif %}
               </a>
               <div class="down-content">
-                <a href="{% url 'detail-director' post.pk %}"><h4>{{ post.board_of_director_name |truncatechars:25}}</h4></a>
+                <a href="{% url 'detail-director' post.pk %}"><h4>{{ post.board_of_director_name |truncatechars:19}}</h4></a>
+                <hr>
                 <span>{{ post.board_of_director_position }}</span>
                 <p>{{ post.board_of_director_description |truncatechars:55}}</p>
                 <p>

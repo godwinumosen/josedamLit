@@ -31,11 +31,11 @@
             <div class="team-item">
               <a href="{% url 'detail-team' post.pk %}">
                 {% if post.worker_img %}
-                <img src="{{ post.worker_img.url }}" height="240px" alt="">
+                <img src="{{ post.worker_img.url }}" height="250px" alt="">
                 {% endif %}
               </a>
               <div class="down-content">
-                <a href="{% url 'detail-team' post.pk %}"><h4>{{ post.worker_name |truncatechars:20}}</h4></a>
+                <a href="{% url 'detail-team' post.pk %}"><h4>{{ post.worker_name |truncatechars:20}}</h4></a><hr>
                 <span>{{ post.worker_position }}</span>
                 <p>{{ post.worker_description |truncatechars:55}}</p>
                 <p>

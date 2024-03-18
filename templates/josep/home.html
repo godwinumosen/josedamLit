@@ -120,12 +120,12 @@
             <div class="service-item">
               <a href="{% url 'detail' post.pk %}">
                 {% if post.img %}
-                <img src="{{ post.img.url }}"height="250px" alt="">
+                <img src="{{ post.img.url }}"height="220px" alt="">
                 {% endif %}
               </a>
               <div class="down-content">
                 <h4>
-                  <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:16 }}</a>
+                  <a href="{% url 'detail' post.pk %}">{{ post.title|truncatechars:20 }}</a>
                 </h4>
                 <p>{{ post.description|truncatechars:55 }}</p>
                 <a href="{% url 'detail' post.pk %}" class="filled-button">View More</a>
@@ -180,7 +180,7 @@
                 <div class="service-item">
                   <a href="{% url 'second_detail' second_construction.pk %}">
                     {% if second_construction.image1 %}
-                    <img src="{{ second_construction.image1.url }}"height="250px" alt="">
+                    <img src="{{ second_construction.image1.url }}"height="220px" alt="">
                     {% endif %}
                   </a>
                   <div class="down-content">

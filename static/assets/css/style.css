@@ -309,13 +309,13 @@ header .navbar {
 }
 .navbar .navbar-toggler {
 	border-color: #fff;
-	background-color: #fff;	
+	background-color: #d4efed;
 	height: 36px;
 	outline: none;
-	border-radius: 0px;
+	border-radius: 15px;
 	position: absolute;
 	right: 30px;
-	top: 20px;
+	top: 29px;
 }
 .navbar .navbar-toggler-icon:after {
 	content: '\f0c9';

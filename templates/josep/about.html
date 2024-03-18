@@ -71,33 +71,22 @@
          <!-- Page Content -->
          <div class="testimonials" style="margin: 0">
           <div class="container">
+            {% for post in object_list %}
             <div class="row">
               <div class="col-md-12">
                 <!--<div class="owl-testimonials owl-carousel">-->
                   <div class="testimonial-item">
                     <div class="inner-content">
-                      <h4>Our Mission</h4>
-                      <p>Our Missio Our Missio Our Missio Our Missio Our MissioOur MissioOur Missio Our Missio Our Missio Our MissioOur MissioOur Missio Our Missio Our Missio Our MissioOur MissioOur Missio Our Missio Our Missio Our MissioOur Missio</p>
+                      <h4>{{ post.title }}</h4>
+                      <p>{{ post.description }}</p>
                     </div>
                   </div>
-                  
-                  
-                  <div class="testimonial-item">
-                    <div class="inner-content">
-                      <h4> Our Vision</h4>
-                      <p>Our Vision Our Vision Our Vision Our Vision Our Vision Our Vision Our Vision Our Vision Our Vision Our VisionOur Vision Our Vision Our Vision Our Vision Our VisionOur Vision Our Vision Our Vision Our Vision Our Vision </p>
-                    </div>
-                  </div>  
                 </div>
               </div>
-              <div class="testimonial-item">
-                <div class="inner-content">
-                  <h4> Core Values</h4>
-                  <p>Core Values Core Values Core Values Core Values Core ValuesCore Values Core Values Core Values Core Values Core Values Core Values Core Values </p>
-                </div>
-              </div>  
+              {% endfor %}
             </div>
           </div>
+          
 
     <div class="fun-facts">
       <div class="container">

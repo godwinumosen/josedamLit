@@ -2,6 +2,7 @@ from django.contrib import admin
 # Register your models here.
 from . import models
 from .models import ConstructionPost,SecondConstruction,TeamsPost, Board_Of_DirectorPost, BlogPost
+from .models import AboutMissionVisionCorevalues
 
 #The Construction post model admin of josepdam
 class ConstructionPostModelAdmin (admin.ModelAdmin):
@@ -33,5 +34,7 @@ class Board_Of_Director_ModelAdmin (admin.ModelAdmin):
     list_display = ['board_of_director_name','board_of_director_position','board_of_director_description']
 admin.site.register(Board_Of_DirectorPost, Board_Of_Director_ModelAdmin)
 
-
-
+#About Mission Vision CoreValues
+class About_Mission_Vision_Corevalues_ModelAdmin (admin.ModelAdmin):
+    list_display = ['title']
+admin.site.register(AboutMissionVisionCorevalues, About_Mission_Vision_Corevalues_ModelAdmin)

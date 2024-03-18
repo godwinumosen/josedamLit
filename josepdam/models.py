@@ -115,3 +115,11 @@ class BlogPost(models.Model):
     
     def get_absolute_url(self):
         return reverse ('home')
+    
+
+class AboutMissionVisionCorevalues(models.Model):
+    title = models.CharField(max_length=900, blank=True, null=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title 

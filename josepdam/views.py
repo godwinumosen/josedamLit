@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView,ListView
 from django.contrib.auth.decorators import login_required
 from .models import ConstructionPost, SecondConstruction , TeamsPost, Board_Of_DirectorPost, Like, BlogPost
-from .models import SecondConstruction
+from .models import SecondConstruction, AboutMissionVisionCorevalues
 from django.contrib import messages
 from django.http import HttpResponse
 from django.urls import reverse
@@ -72,8 +72,12 @@ def message (request):
     return render (request, 'josep/message.html', {})
 
 # The about page
-def about (request):
-    return render (request,'josep/about.html' )
+'''def about (request):
+    return render (request,'josep/about.html' )'''
+
+class AboutView (ListView):
+    model = AboutMissionVisionCorevalues
+    template_name = 'josep/about.html'
 
 
 #Whatsapp Messages

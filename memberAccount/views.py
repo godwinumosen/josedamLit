@@ -1,14 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import memberRegister
-from .forms import MyForm
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
-from django.contrib.auth.models import User
-
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .forms import MyForm
 
@@ -30,7 +24,6 @@ def signup(request):
     return render (request, 'registration/signup.html', {})
 
 
-
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -39,21 +32,19 @@ def login_user(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            messages.success(request, f'Your account has been successfully created {username}..')
-            return redirect('home')  # Change 'dashboard' to the URL name of your dashboard page
+            messages.success(request, f'Welcome back, {username}.')
+            return redirect('home')  # Redirect to the 'home' page after successful login
         else:
-            # Return an 'invalid login' error message.
+            # Return to login page with an error message.
             messages.error(request, 'Invalid username or password.')
-            return render(request, 'registration/login_message.html')  # Change 'login' to the URL name of your login page
+            return render(request, 'registration/login_message.html')
     else:
-        return render(request, 'registration/login_user.html')
-
-def login_message (request):
-    return render(request, 'registration/login_message.html')
-
-
+        return render(request, 'registration/login_user.html',{'user': request.user})
 
 def logout_user(request):
     logout(request)
     messages.info(request, 'You have logged out.')
-    return redirect('home')  
+    return redirect('home')
+
+def login_message (request):
+    return render(request, 'registration/login_message.html',{'user': request.user})

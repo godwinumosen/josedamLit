@@ -1,12 +1,16 @@
 from django.shortcuts import render,redirect
-from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import memberRegister
 from .forms import MyForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from .forms import MyForm
 
 def signup(request):
     if request.method == 'POST':
@@ -24,6 +28,8 @@ def signup(request):
             return render(request, 'registration/login_user.html')
     
     return render (request, 'registration/signup.html', {})
+
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -44,3 +50,10 @@ def login_user(request):
 
 def login_message (request):
     return render(request, 'registration/login_message.html')
+
+
+
+def logout_user(request):
+    logout(request)
+    messages.info(request, 'You have logged out.')
+    return redirect('home')  

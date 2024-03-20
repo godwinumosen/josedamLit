@@ -5,6 +5,8 @@ from .models import ConstructionPost, SecondConstruction , TeamsPost, Board_Of_D
 from .models import SecondConstruction, AboutMissionVisionCorevalues
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.urls import reverse_lazy
 
@@ -16,12 +18,16 @@ def base (request):
 class HomeView(ListView):
     model = ConstructionPost
     template_name = 'josep/home.html'
+    #login_url = '/login/'  # Set the login URL if the user is not authenticated
 
 #This model is for the sub category of the blog
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        #context['user'] = self.request.user
         context['second_constructions'] = SecondConstruction.objects.all()
         return context
+ 
+    
     
 #The first ArticleDetailView page
 class ArticleDetailView(DetailView):

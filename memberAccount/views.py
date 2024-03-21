@@ -24,6 +24,23 @@ def signup(request):
     return render (request, 'registration/signup.html', {})
 
 
+'''def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            messages.success(request, f'Login Sccessfully {username}..')
+            return redirect('home')  # Change 'dashboard' to the URL name of your dashboard page
+        else:
+            # Return an 'invalid login' error message.
+            messages.error(request, 'Invalid username or password.')
+            return render(request, 'registration/login_message.html')  # Change 'login' to the URL name of your login page
+    else:
+        return render(request, 'registration/login_user.html')'''
+
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -32,19 +49,18 @@ def login_user(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            messages.success(request, f'Welcome back, {username}.')
-            return redirect('home')  # Redirect to the 'home' page after successful login
+            messages.success(request, f'Login Successfully {username}..')
+            return redirect('home')  # Change 'dashboard' to the URL name of your dashboard page
         else:
-            # Return to login page with an error message.
             messages.error(request, 'Invalid username or password.')
-            return render(request, 'registration/login_message.html')
+            return render(request, 'registration/login_user.html', {'message': 'Invalid username or password.'})
     else:
-        return render(request, 'registration/login_user.html',{'user': request.user})
+        return render(request, 'registration/login_user.html')
 
 def logout_user(request):
     logout(request)
-    messages.info(request, 'You have logged out.')
+    messages.success(request, 'You have logged out.')
     return redirect('home')
 
 def login_message (request):
-    return render(request, 'registration/login_message.html',{'user': request.user})
+    return render(request, 'registration/login_message.html')

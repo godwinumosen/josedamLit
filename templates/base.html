@@ -1,4 +1,11 @@
 {% load static %}
+
+{% for message in messages %}
+<div id='lower-side'>
+  <p id='message'>{{ message }}</p>
+  {% endfor %}
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">

@@ -63,4 +63,4 @@ def logout_user(request):
     return redirect('home')
 
 def login_message (request):
-    return render(request, 'registration/login_message.html'
+    return render(request, 'registration/login_message.html')

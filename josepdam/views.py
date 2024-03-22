@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.urls import reverse_lazy
 
 
-def base (request)
+def base (request):
     return render(request,"base.html")
 
 #The main HomeView page

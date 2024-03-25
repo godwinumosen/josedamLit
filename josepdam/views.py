@@ -45,7 +45,7 @@ class SecondConstructionDetailViewArticleDetailView(DetailView):
 
     def SecondConstructionDetailViewArticleDetailView(request, pk):  
         object = get_object_or_404(SecondConstruction, pk=pk)
-        return render(reuest, 'josep/second_article_detail.html', {'second_detail': object})
+        return render(request, 'josep/second_article_detail.html', {'second_detail': object})
 
     
 class BlogView(ListView):

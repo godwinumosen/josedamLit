@@ -18,7 +18,7 @@ def base (request):
 class HomeView(ListView):
     model = ConstructionPost
     template_name = 'josep/home.html'
-    #login_url = '/login/'  # Set the login URL if the user is not authenticated
+    #login_url = '/login/'  # Set the login URL if the user is not authenticated  
 
 #This model is for the sub category of the blog
     def get_context_data(self, **kwargs):
@@ -27,7 +27,6 @@ class HomeView(ListView):
         context['second_constructions'] = SecondConstruction.objects.all()
         return context
  
-    
     
 #The first ArticleDetailView page
 class ArticleDetailView(DetailView):

@@ -181,3 +181,10 @@ def video (request):
     return render(request,'josep/video.html')
 
 # Adding comment to the blog details
+def OurServices (request):
+
+    return render (request, 'josep/our_services.html', {})  
+
+def OurProjects (request):
+
+    return render (request, 'josep/our_projects.html', {}) 

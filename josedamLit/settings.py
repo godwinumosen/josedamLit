@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'josedamLit.wsgi.application
+WSGI_APPLICATION = 'josedamLit.wsgi.application'
 
 GOOGLE_API_KEY =''
 

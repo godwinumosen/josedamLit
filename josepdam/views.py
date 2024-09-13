@@ -28,7 +28,7 @@ class HomeView(ListView):
         return context
  
     
-#The first ArticleDetailView page
+ #The first ArticleDetailView page
 class ArticleDetailView(DetailView):
     model = ConstructionPost
     template_name = 'josep/article_detail.html'
@@ -53,7 +53,6 @@ class BlogView(ListView):
     template_name = 'josep/blog.html'
 
 def blog (request):
-
     return render (request, 'josep/blog.html', {})   
 
 # The Contact view been implemented
